@@ -5,11 +5,14 @@ using UnityEngine;
 public class GroundTile : MonoBehaviour
 {
     GroundSpawn groundSpawn;
+    public float xOffset = 3f;
+    public Transform [] allitems;
 
     private void Start()
     {
         groundSpawn = GameObject.FindObjectOfType<GroundSpawn>();
-        SpawnCoin();
+        // SpawnCoin();
+        SpawnObs();
     }
     private void Update()
     {
@@ -32,6 +35,17 @@ public class GroundTile : MonoBehaviour
         }
     }
 
+    void SpawnObs()
+    {
+        int whichItem = Random.Range(0, allitems.Length); 
+        //nilai terbesar random range itu max-exclusive artinya tidak ikut. ex.(kalau 2 berarti random terbesar 1)
+        //random integer = random.range(minInclusive, maxExclusive)
+        //random float = random.range(minInclusive, maxInclusive)
+        float xPos = whichItem < 3 ?  Random.Range(-1, 2) * xOffset : 0f;
+        Transform obs = Instantiate(allitems[whichItem], Vector3.zero, allitems[whichItem].rotation);
+        obs.parent = transform;
+        obs.localPosition = new Vector3(xPos, 0, 5f);
+    }
     Vector3 RandomPointCollider(Collider collider)
     {
         Vector3 point = new Vector3(
