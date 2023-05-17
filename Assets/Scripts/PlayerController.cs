@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
         if (playerSpeed < maximumPlayerSpeed)
         {
             playerSpeed += Time.deltaTime * speedIncrease;
-            gravity = intialGravity - playerSpeed;
+            gravity = intialGravity - (playerSpeed * playerSpeed) / (2 * jumpHeight);
 
             if (animator.speed < 1.25f)
                 animator.speed += (1 / playerSpeed) * Time.deltaTime;

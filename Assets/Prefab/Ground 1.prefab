@@ -161,8 +161,8 @@ MonoBehaviour:
   allitems:
   - {fileID: 7262522156705967725, guid: f1967688568ff3c43a2dcf51e10aa3bb, type: 3}
   - {fileID: 9014430977919070418, guid: d296fc58870f45b49aaeeac4bb494547, type: 3}
-  - {fileID: 400000, guid: 5dfda1f5d21ec9a4783456e3d1a3dbcc, type: 3}
-  - {fileID: 400000, guid: 06fd29260038fb34ea2c8a58e5777c39, type: 3}
+  - {fileID: 7863884783898378865, guid: 951813b95477e2446a85a5c45088ea32, type: 3}
+  - {fileID: 2556707255436154196, guid: c5a61f1cc9b37ae499d16c6cc3954118, type: 3}
   coinPrefab: {fileID: 2862702108981188701, guid: 28020ee5761e6594e81a0358b7b61ba8,
     type: 3}
 --- !u!1 &8419683984134533496

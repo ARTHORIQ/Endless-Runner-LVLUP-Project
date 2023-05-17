@@ -77,6 +77,10 @@ public class SwipeManager : MonoBehaviour
 
             Reset();
         }
+        if (tap && !swipeLeft && !swipeRight && !swipeDown && !swipeUp)
+        {
+            
+        }
 
     }
 
