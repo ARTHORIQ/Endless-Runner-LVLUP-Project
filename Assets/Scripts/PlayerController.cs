@@ -57,6 +57,14 @@ public class PlayerController : MonoBehaviour
                 controller.Move(dir * Time.deltaTime);                      
             }
         }
+        else
+        {
+            if (SwipeManager.swipeDown)
+            {
+                dir.y -= Mathf.Sqrt(jumpHeight * gravity * -3f);
+                controller.Move(dir * Time.deltaTime);
+            }
+        }
 
         //Slide
         if (!sliding && IsGrounded())
