@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CController = UnityEngine.CharacterController;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private CController controller;
     private float gravity;
     private bool sliding = false;
+    bool alive = true;
     private int slidinganimationId;
 
     public float playerSpeed;
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        if (!alive) return;
         //Movement
         controller.Move(transform.forward * playerSpeed * Time.deltaTime);
         if (IsGrounded() && dir.y < 0)
@@ -145,5 +148,10 @@ public class PlayerController : MonoBehaviour
         controller.height *= 2;
         controller.center = originalControllerCenter;
         sliding = false;
+    }
+    public void Die()
+    {
+        alive = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
