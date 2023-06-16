@@ -149,9 +149,15 @@ public class PlayerController : MonoBehaviour
         controller.center = originalControllerCenter;
         sliding = false;
     }
-    public void Die()
-    {
-        alive = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    void OnCollisionEnter(Collision player) {
+        if (player.gameObject.CompareTag("Obstacle"))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
+    // public void Die()
+    // {
+    //     alive = false;
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    // }
 }

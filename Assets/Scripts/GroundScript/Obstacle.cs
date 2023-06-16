@@ -9,9 +9,9 @@ public class Obstacle : MonoBehaviour
     {
         pc = GameObject.FindObjectOfType<PlayerController>();
     }
-    private void OnCollisionEnter(Collision collision) 
-    {
-        if (collision.gameObject.name == "Player")
-            pc.Die();
-    }
+    // private void OnCollisionEnter(Collision collision) 
+    // {
+    //     if (collision.gameObject.name == "Player")
+    //         pc.Die();
+    // }
 }
