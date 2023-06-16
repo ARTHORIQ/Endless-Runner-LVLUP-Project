@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CController = UnityEngine.CharacterController;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour
     public float laneDist = 4; //Distance between two lanes
     public float jumpHeight = 1.0f;
     public float intialGravity = -9.81f;
+
+    public static int totalCoin;
+    public TextMeshProUGUI coinText;
 
     private void Awake() 
     {
@@ -115,6 +119,7 @@ public class PlayerController : MonoBehaviour
             if (animator.speed < 1.25f)
                 animator.speed += (1 / playerSpeed) * Time.deltaTime;
         }
+        coinText.text = totalCoin.ToString();
     }
 
     private bool IsGrounded(float length = .2f)
