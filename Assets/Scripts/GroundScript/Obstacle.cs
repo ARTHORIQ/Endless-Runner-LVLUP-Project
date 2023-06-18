@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Obstacle : MonoBehaviour
 {
@@ -9,9 +10,10 @@ public class Obstacle : MonoBehaviour
     {
         pc = GameObject.FindObjectOfType<PlayerController>();
     }
-    // private void OnCollisionEnter(Collision collision) 
-    // {
-    //     if (collision.gameObject.name == "Player")
-    //         pc.Die();
-    // }
+    void OnCollisionEnter(Collision player) {
+        if (player.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
 }
