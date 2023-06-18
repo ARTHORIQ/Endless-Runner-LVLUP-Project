@@ -18,12 +18,10 @@ public class Collectibles : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.gameObject.name != "Player")
+        if (other.gameObject.tag == "Player")
         {
-            return;
+            PlayerController.totalCoin++;
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
-
 }
