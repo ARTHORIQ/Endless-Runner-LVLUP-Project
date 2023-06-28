@@ -163,8 +163,12 @@ MonoBehaviour:
   - {fileID: 9014430977919070418, guid: d296fc58870f45b49aaeeac4bb494547, type: 3}
   - {fileID: 7863884783898378865, guid: 951813b95477e2446a85a5c45088ea32, type: 3}
   - {fileID: 2556707255436154196, guid: c5a61f1cc9b37ae499d16c6cc3954118, type: 3}
-  coinPrefab: {fileID: 2862702108981188701, guid: 28020ee5761e6594e81a0358b7b61ba8,
+  coinPrefab: {fileID: 1656561441263501559, guid: a6048ab420587734a885f681c471923d,
     type: 3}
+  minCoinToSpawn: 3
+  maxCoinToSpawn: 6
+  coinStackOffset: 1
+  coinHeightOffset: 0.1
 --- !u!1 &8419683984134533496
 GameObject:
   m_ObjectHideFlags: 0
