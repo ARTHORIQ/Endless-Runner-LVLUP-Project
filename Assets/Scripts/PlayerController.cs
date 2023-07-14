@@ -1,9 +1,7 @@
 // using System.Numerics;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using CController = UnityEngine.CharacterController;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
@@ -17,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AnimationClip slideAnimationClip;
     [SerializeField] private Animator animator;
 
+    private HealthManager healthManager;
     private CController controller;
     private float gravity;
     private bool sliding = false;
@@ -31,10 +30,10 @@ public class PlayerController : MonoBehaviour
     public static int totalCoin;
     public TextMeshProUGUI coinText;
 
-    private void Awake() 
+    private void Awake()
     {
+        healthManager = GetComponent<HealthManager>();
         controller = GetComponent<CController>();
-
         slidinganimationId = Animator.StringToHash("Sliding");
     }
     private void Start()
@@ -58,10 +57,10 @@ public class PlayerController : MonoBehaviour
         // dir.z = forwardSpeed;
         if (IsGrounded())
         {
-            if (SwipeManager.swipeUp) 
+            if (SwipeManager.swipeUp)
             {
                 dir.y += Mathf.Sqrt(jumpHeight * gravity * -3f);
-                controller.Move(dir * Time.deltaTime);                      
+                controller.Move(dir * Time.deltaTime);
             }
         }
         else
@@ -85,7 +84,7 @@ public class PlayerController : MonoBehaviour
         //collecting input on which lane we should be
         //by default desiredLane is always 1 which is the middle
         if (SwipeManager.swipeRight)
-        {                         
+        {
             desiredLane++;         //desiredLane = 2, press right it becomes 3
             if (desiredLane == 3)  //if desiredLane = 3
                 desiredLane = 2;   //change it to 2 so it stays on the right
@@ -154,12 +153,16 @@ public class PlayerController : MonoBehaviour
         controller.center = originalControllerCenter;
         sliding = false;
     }
-    void OnCollisionEnter(Collision player) {
-        if (player.gameObject.CompareTag("Obstacle"))
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Obstacle")
         {
-            SceneManager.LoadScene("Menu");
+            hit.collider.enabled = false;
+            healthManager.ReduceHealth();
         }
     }
+
     // public void Die()
     // {
     //     alive = false;

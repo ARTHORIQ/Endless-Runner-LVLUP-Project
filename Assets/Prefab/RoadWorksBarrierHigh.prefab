@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2556707255433729972}
   - component: {fileID: 8179332502137572653}
   - component: {fileID: -4325140829592491206}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RoadWorksBarrierHigh
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
