@@ -5,7 +5,6 @@ using UnityEngine;
 public class Collectibles : MonoBehaviour
 {
     public float turnSpeed = 90f;
-
     void Start()
     {
         
@@ -14,7 +13,7 @@ public class Collectibles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, turnSpeed * Time.deltaTime);
+        transform.Rotate(0, turnSpeed * Time.deltaTime, 0);
     }
     private void OnTriggerEnter(Collider other) 
     {

@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 90
+  rotationDirection: {x: 0, y: 1, z: 0}
 --- !u!65 &6746956201018401805
 BoxCollider:
   m_ObjectHideFlags: 0
