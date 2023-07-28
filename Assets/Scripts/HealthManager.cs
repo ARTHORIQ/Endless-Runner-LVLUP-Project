@@ -15,12 +15,13 @@ public class HealthManager : MonoBehaviour
     public void ReduceHealth()
     {
         playerHealth--;
+        UpdateHeartDisplay();
         if (playerHealth <= 0)
         {
             playerHealth = 0;
             SceneManager.LoadScene("Menu");
         }
-        UpdateHeartDisplay();
+        //UpdateHeartDisplay();
     }
 
 
