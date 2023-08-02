@@ -6,6 +6,7 @@ public class HealthManager : MonoBehaviour
     public GameObject[] hearts;
 
     [SerializeField] private int playerHealth = 3;
+    [SerializeField] GameObject gameOver;
 
     private void Start()
     {
@@ -19,7 +20,9 @@ public class HealthManager : MonoBehaviour
         if (playerHealth <= 0)
         {
             playerHealth = 0;
-            SceneManager.LoadScene("Menu");
+            Time.timeScale = 0f;
+            gameOver.SetActive(true);
+            //SceneManager.LoadScene("Menu");
         }
         //UpdateHeartDisplay();
     }
