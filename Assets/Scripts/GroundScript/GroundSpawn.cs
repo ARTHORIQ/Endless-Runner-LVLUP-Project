@@ -10,7 +10,7 @@ public class GroundSpawn : MonoBehaviour
 
     public GameObject groundTile;
     Vector3 nextSpawn;
-    
+
     private void Start()
     {
 
@@ -23,6 +23,6 @@ public class GroundSpawn : MonoBehaviour
     public void spawnTile()
     {
         GameObject temp = Instantiate(groundTile, nextSpawn, Quaternion.identity);
-        nextSpawn = temp.transform.GetChild(1).transform.position;
+        nextSpawn = temp.transform.GetChild(1).transform.position + new Vector3(0, 0, 73.5f);
     }
 }
