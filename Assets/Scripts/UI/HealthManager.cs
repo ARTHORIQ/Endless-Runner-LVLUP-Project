@@ -16,6 +16,7 @@ public class HealthManager : MonoBehaviour
     public void ReduceHealth()
     {
         playerHealth--;
+        UpdateHeartDisplay();
         if (playerHealth <= 0)
         {
             playerHealth = 0;
@@ -23,7 +24,7 @@ public class HealthManager : MonoBehaviour
             gameOver.SetActive(true);
             //SceneManager.LoadScene("Menu");
         }
-        UpdateHeartDisplay();
+        //UpdateHeartDisplay();
     }
 
 
